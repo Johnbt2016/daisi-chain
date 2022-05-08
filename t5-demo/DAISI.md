@@ -7,7 +7,7 @@ Call it directly in your code with :
 ```python
 import pydaisi as pyd
 
-tranlator =  pyd.Daisi("LanguageTranslator")
+translator =  pyd.Daisi("LanguageTranslator")
 result = translator.translate(text="Testing the translation", dest='french').value
 ```
 

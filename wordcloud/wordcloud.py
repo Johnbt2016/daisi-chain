@@ -28,14 +28,17 @@ def st_ui():
     Simply upload an Excel file with a column containing the sentences that will be used to compute the wordcloud.   
     The column needs to be labelled "title"   
     
-    Call it in your code now (see the [Daisi "WordCloud" doc](https://app.daisi.io/daisies/237587e0-7c47-4a4f-afad-80370c8e98a4/how-to-use)):   
-    `import pydaisi as pyd`   
-    `import pandas as pd`   
+    Call it in your code now (see the [Daisi "WordCloud" doc](https://app.daisi.io/daisies/50254f1c-6e2b-47cd-8f96-c676be59ad96/how-to-use)):   
 
-    `classify =  pyd.Daisi("WordCloud")`   
-    `df = pd.read_excel(<filename>)`
-    `df = df.rename(columns={'your column name': 'title'})`
-    `bytestring_image = wc.generate_wordcloud_byte(texts_path=df).value`   
+    ```python
+    import pydaisi as pyd   
+    import pandas as pd   
+
+    classify =  pyd.Daisi("WordCloud")   
+    df = pd.read_excel(<filename>)
+    df = df.rename(columns={'your column name': 'title'})
+    bytestring_image = wc.generate_wordcloud_byte(texts_path=df).value   
+    ```
 
     
     ''')

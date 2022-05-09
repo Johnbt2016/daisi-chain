@@ -13,9 +13,12 @@ def st_ui():
     This is an application of the T5 language model developed by Google for translation.   
 
     Call it in your code (see the [Daisi "LanguageTranslator" doc](https://app.daisi.io/daisies/63ed4819-2134-4cfc-87d1-eba65bdaeed2/how-to-use)):   
-    `import pydaisi as pyd`   
-    `translator =  pyd.Daisi("LanguageTranslator")`   
-    `result = translator.translate(text="Testing the translation", dest='french').value`   
+
+    ```python
+    import pydaisi as pyd   
+    translator =  pyd.Daisi("LanguageTranslator")   
+    result = translator.translate(text="Testing the translation", dest='french').value  
+    ```
 
     
     Check also the [model doc](https://huggingface.co/docs/transformers/main/en/model_doc/t5#transformers.T5WithLMHeadModel) on Transformers

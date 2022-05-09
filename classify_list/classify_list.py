@@ -1,4 +1,3 @@
-from doctest import DocFileSuite
 import pydaisi as pyd
 import pandas as pd
 import streamlit as st

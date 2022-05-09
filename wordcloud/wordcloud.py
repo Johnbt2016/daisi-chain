@@ -24,7 +24,7 @@ def st_ui():
     st.title("Compute a beautiful Wordcloud")
 
     st.markdown('''
-    This daisi comutes and render a wordcloud.   
+    This daisi computes and render a wordcloud.   
     Simply upload an Excel file with a column containing the sentences that will be used to compute the wordcloud.   
     The column needs to be labelled "title"   
     

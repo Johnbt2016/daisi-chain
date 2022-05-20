@@ -1,37 +1,36 @@
 import pydaisi as pyd
 import pandas as pd
 import streamlit as st
-
+from summary import *
 
 classify = pyd.Daisi("Zero Shot Text Classification")
 
 def get_labels(df, column, candidate_labels):
-    print(df)
+    '''
+    Returns the classification of sentences stored in a column of a dataframe.
+
+    Parameters:
+    - df (Pandas Dataframe) :  the input Dataframe 
+    - column (str) : the title of the column containing the sentences
+    - candidate_labels (str) : the possible labels to classify the sentences (labels need to be separated by commas)
+
+    Returns:
+    - a list of labels corresponding to each sentence
+    '''
+
     data_list = df[column].to_list()
     labels = [classify.compute(text = n, candidate_labels = candidate_labels).value for n in data_list]
     return labels
 
 
 def st_ui():
+    '''This function renders the Streamlit UI'''
     st.title("Zero Shot Text Classification")
 
-    st.markdown('''
-    This daisi uses the Bart language model developed by Facebook for Zero Shot classification.   
-    Simply upload an Excel file with a column containing the sentences to classify and define possible labels.   
-    
-    Call it in your code now (see the [Daisi Zero Shot Text Classification" doc](https://app.daisi.io/daisies/237587e0-7c47-4a4f-afad-80370c8e98a4/how-to-use)):   
+    with st.expander("Summary"):
+        st.markdown(get_summary())
 
-    ```python
-    import pydaisi as pyd   
-    classify =  pyd.Daisi("Zero Shot Text Classification")   
-    result = classify.compute(text="Let's go the moon", candidate_labels="astronomy, travel").value  
-    ```
-
-    
-    Check also the [model doc](https://huggingface.co/docs/transformers/main/en/model_doc/bart#transformers.BartForSequenceClassification) on Transformers
-    ''')
-
-    fileupload = st.sidebar.file_uploader("Load an Excel file with the text to classify in a column")
+    fileupload = st.sidebar.file_uploader("Load an Excel file with the sentences to classify in a column")
     if fileupload is not None:
         df = pd.read_excel(fileupload)
         headers = df.columns.values.tolist()
@@ -47,4 +46,5 @@ def st_ui():
         st.header("Classification results")
         st.dataframe(df)
     
-st_ui()
+if __name__ == "__main__":
+    st_ui()

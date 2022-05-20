@@ -25,6 +25,7 @@ def get_labels(df, column, candidate_labels):
 
 def st_ui():
     '''This function renders the Streamlit UI'''
+    st.set_page_config(layout = "wide")
     st.title("Zero Shot Text Classification")
 
     with st.expander("Summary"):

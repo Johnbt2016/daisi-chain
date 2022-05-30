@@ -1,0 +1,4 @@
+pydaisi
+pandas
+Pillow
+streamlit

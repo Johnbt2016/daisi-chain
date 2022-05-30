@@ -7,7 +7,7 @@ import io
 import base64
 
 
-wc = pyd.Daisi("WordCloud")
+wc = pyd.Daisi("laiglejm/WordCloud")
 
 def wordcloud(df):
     df = df.rename(columns={'review': 'title'})

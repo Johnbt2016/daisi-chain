@@ -42,6 +42,20 @@ def wordcloud(df):
     return image
 
 def orchestrate(term="korean", location="Houston", language="French"):
+    '''
+    Orchestrate 4 Daisies to pull restaurant reviews from Yelp, analyze sentiment
+    of each review, translate in a different language and compute a Wordcloud
+
+    Parameters:
+    - term (str) : the restaurant type (default = "korean")
+    - location (str) : the city (default = "Houston")
+    - language (str) : the language for translation
+
+    Returns:
+    - a Pandas Dataframe with the results
+    - an image of the Wordcloud
+    '''
+    
     df = yelp.get_reviews(term=term, location=location).value
 
     df = sentiment(df)

@@ -12,7 +12,6 @@ yelp = pyd.Daisi("Get Yelp Reviews")
 
 def sentiment(df):
     #Daisi call
-    print(df)
     sentiments = classify.get_labels(df=df, column="review", candidate_labels="positive, negative").value
 
     s = [el['result']['labels'][0] for el in sentiments]
@@ -55,7 +54,7 @@ def orchestrate(term="korean", location="Houston", language="French"):
     - a Pandas Dataframe with the results
     - an image of the Wordcloud
     '''
-    
+
     df = yelp.get_reviews(term=term, location=location).value
 
     df = sentiment(df)
@@ -94,3 +93,4 @@ def st_ui():
 
 if __name__ == "__main__":
     st_ui()
+

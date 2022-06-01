@@ -32,9 +32,9 @@ def st_ui():
     candidate_labels = st.sidebar.text_input("Candidate labels (comma separated)", "travel, astronomy")
     multi_labels = st.sidebar.checkbox('Allow multi labels classification')
     if multi_labels:
-        is_multi_labels = "True"
+        is_multi_labels = "true"
     else:
-        is_multi_labels = "False"
+        is_multi_labels = "false"
     result = compute(text, candidate_labels, is_multi_labels)
 
     st.write(result)

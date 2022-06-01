@@ -37,7 +37,7 @@ def st_ui():
     source_language = st.sidebar.selectbox("Input language", ['english'],index=0)
     target_language = st.sidebar.selectbox("Output language", languages)
 
-    output = translate(sentence, source_language, target_language)
+    output = translate(sentence, target_language)
 
     st.header("Translation result :")
     st.write(output)

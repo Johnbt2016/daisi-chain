@@ -3,7 +3,15 @@ import streamlit as st
 
 translator = pyd.Daisi("LanguageTranslator")
 
-def translate(sentence, source_language, target_language):
+def translate(sentence, target_language):
+    '''
+    Parameters:
+    - sentence (str) : sentence to translate (in english)
+    - target_language (str) : destination language
+
+    Returns:
+    - The translated sentence (str)
+    '''
     return translator.translate(text=sentence, dest=target_language).value
 
 def st_ui():
@@ -34,4 +42,5 @@ def st_ui():
     st.header("Translation result :")
     st.write(output)
 
-st_ui()
+if __name__ == "__main__":
+    st_ui()

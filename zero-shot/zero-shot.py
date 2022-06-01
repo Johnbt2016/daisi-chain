@@ -13,7 +13,7 @@ def md_text():
     zero_shot = pyd.Daisi("Zero Shot Text Classification")
     result = zero_shot.compute(text="Let's go to the moon", 
                                 candidate_labels='travel, astronomy', 
-                                is_multi_labels=False).value
+                                is_multi_labels="false").value
     ```
     
 

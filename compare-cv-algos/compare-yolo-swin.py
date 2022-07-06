@@ -21,7 +21,10 @@ def st_ui():
         from_swin = swin_transformer.compute(img).value
     st.subheader(f"Labels from Swin : {from_swin}")
     with st.spinner("Processing image with Yolo"):
-        yolo_result, labels_df = yolo_object_detection.yolo(img, return_type=["Image", "Labels"]).value
+        try:
+            yolo_result, labels_df = yolo_object_detection.yolo(img, return_type=["Image", "Labels"]).value
+        except:
+            st.write("Not many great results from YoloV6 for this image")
     
     st.subheader("Label from Yolov6 :")
     st.table(labels_df)

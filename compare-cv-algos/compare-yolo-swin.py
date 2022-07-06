@@ -19,17 +19,23 @@ def st_ui():
     st.image(img)
     with st.spinner("Processing image with SWIN"):
         from_swin = swin_transformer.compute(img).value
-    st.subheader(f"Labels from Swin : {from_swin}")
+    try:
+        st.subheader(f"Labels from Swin : {from_swin}")
+    except:
+        st.write("Not many great results from Swin for this image")
+
     with st.spinner("Processing image with Yolo"):
-        try:
-            yolo_result, labels_df = yolo_object_detection.yolo(img, return_type=["Image", "Labels"]).value
-        except:
-            st.write("Not many great results from YoloV6 for this image")
-    
-    st.subheader("Label from Yolov6 :")
-    st.table(labels_df)
-    st.subheader(f"Boxes from Yolo:")
-    st.image(yolo_result)
+        yolo_result, labels_df = yolo_object_detection.yolo(img, return_type=["Image", "Labels"]).value
+           
+        
+    try:
+        st.subheader("Label from Yolov6 :")
+        st.table(labels_df)
+        st.subheader(f"Boxes from Yolo:")
+        st.image(yolo_result)
+    except:
+        st.write("Not many great results from YoloV6 for this image")
+
 
 if __name__ == "__main__":
     st_ui()

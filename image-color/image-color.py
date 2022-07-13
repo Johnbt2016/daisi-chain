@@ -15,7 +15,7 @@ def md_text():
     image = Image.open(<path to image file>)
 
     colorizer = pyd.Daisi("laiglejm/Image Colorization")
-    result = colorizer.compute(image).value
+    result = colorizer.run(image).value
     ```
     
 

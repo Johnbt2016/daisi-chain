@@ -17,6 +17,7 @@ def st_ui():
 
     img = Image.open(file_name)
     st.image(img)
+    
     with st.spinner("Processing image with SWIN"):
         from_swin = swin_transformer.compute(img).value
     try:
@@ -25,7 +26,10 @@ def st_ui():
         st.write("Not many great results from Swin for this image")
 
     with st.spinner("Processing image with Yolo"):
-        yolo_result, labels_df = yolo_object_detection.yolo(img, return_type=["Image", "Labels"]).value
+        try:
+            yolo_result, labels_df = yolo_object_detection.yolo(img, return_type=["Image", "Labels"]).value
+        except:
+            pass
            
         
     try:

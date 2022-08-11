@@ -2,7 +2,7 @@ import streamlit as st
 import pydaisi as pyd
 from summary import *
 
-ask_bert = pyd.Daisi("erichare/Ask BERT", base_url="https://dev3.daisi.io")
+ask_bert = pyd.Daisi("exampledaisies/Ask BERT")
 
 def get_answer(context, query):
     answer = ask_bert.compute(query, context).value

@@ -40,8 +40,9 @@ def st_ui():
         st.header("View of your Data")
         st.dataframe(df)
         labels = get_labels(df, column_choice, labels)
-        s = [el['result']['labels'][0] for el in labels]
-        proba = [el['result']['scores'][0] for el in labels]
+        print(labels)
+        s = [el['labels'][0] for el in labels]
+        proba = [el['scores'][0] for el in labels]
         df["Classification Result"] = s
         df["Proba"] = proba
         st.header("Classification results")

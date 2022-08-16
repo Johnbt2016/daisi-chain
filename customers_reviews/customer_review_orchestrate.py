@@ -5,10 +5,10 @@ import io
 import base64
 import streamlit as st
 
-classify = pyd.Daisi("Classify Labels")
-translator = pyd.Daisi("LanguageTranslator")
+classify = pyd.Daisi("laiglejm/Classify Labels")
+translator = pyd.Daisi("daisisystem/LanguageTranslator")
 wc = pyd.Daisi("laiglejm/WordCloud")
-yelp = pyd.Daisi("Get Yelp Reviews")
+yelp = pyd.Daisi("laiglejm/Get Yelp Reviews")
 
 def sentiment(df):
     #Daisi call

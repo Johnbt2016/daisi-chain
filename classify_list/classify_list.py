@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from summary import *
 
-zero_shot = pyd.Daisi("laiglejm/Zero Shot Classification")
+zero_shot = pyd.Daisi("exampledaisies/Zero Shot Text Classification")
 
 def get_labels(df, column, candidate_labels):
     '''

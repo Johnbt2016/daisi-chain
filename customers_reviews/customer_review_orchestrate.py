@@ -5,15 +5,15 @@ import io
 import base64
 import streamlit as st
 
-classify = pyd.Daisi("laiglejm/Classify Labels")
+classify_labels = pyd.Daisi("laiglejm/Classify Labels")
 translator = pyd.Daisi("daisisystem/LanguageTranslator")
 wc = pyd.Daisi("laiglejm/WordCloud")
 yelp = pyd.Daisi("laiglejm/Get Yelp Reviews")
 
 def sentiment(df):
     #Daisi call
-    sentiments = classify.get_labels(df=df, column="review", candidate_labels="positive, negative").value
-
+    sentiments = classify_labels.get_labels(df=df, column="review", candidate_labels="positive, negative").value
+    print(sentiments)
     s = [el['result']['labels'][0] for el in sentiments]
     df['sentiment'] = s
 

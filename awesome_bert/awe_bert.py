@@ -6,9 +6,9 @@ ask_bert = pyd.Daisi("erichare/Ask BERT")
 
 def get_answer(context, query):
     answer = ask_bert.compute(query, context).value
-    staight_answer = answer[0]['data']['answer']
-    answer_proba = int(100*float(answer[0]['data']['score']))
-    highlighted_answer = answer[1]['data']
+    staight_answer = answer[0]['answer']
+    answer_proba = int(100*float(answer[0]['score']))
+    highlighted_answer = answer[1]
 
     return staight_answer, highlighted_answer, answer_proba
 
